@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/Card";
 import { groq } from "next-sanity";
-import productData from "@/components/ProductData";
+import ProductData from "@/components/ProductData";
 
 // Defining the Product type
 interface Product {
@@ -28,12 +28,12 @@ interface ProductPageProps {
 
 async function getProduct(slug: string): Promise<Product | null> {
   
-  const products = await productData();
+  const products = await ProductData();
   return products.find((product: Product) => product._id === slug) || null;
 
 }
 export default async function ProductPage({ params }: ProductPageProps) {
-  const products = await productData();
+  const products = await ProductData();
   const { slug } = await products; // Explicitly await params
   const post = await getProduct(slug)
 
