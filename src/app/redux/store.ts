@@ -6,23 +6,25 @@ import storage from "redux-persist/lib/storage";
 import cartReducer from "./cardslice";
 
 const persistConfig = {
-    key: "root",
-    storage,
-}
+  key: "root",
+  storage,
+};
 
-const reducer = combineReducers({
-    cart: cartReducer,
-})
+const rootReducer = combineReducers({
+  cart: cartReducer,
+});
 
-const persistedReducer = persistReducer(persistConfig, reducer); 
-const store = configureStore({
-    reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-        serializableCheck: false,
-    })
-})
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export const persistor = persistStore(store)
-export default store;
+
+export const persistor = persistStore(store);

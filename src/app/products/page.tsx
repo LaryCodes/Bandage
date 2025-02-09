@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import Cards from '@/components/cards'
+import Cards from '@/components/Cards'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
-import productData from '@/components/productData'
+import productData from '@/components/ProductData'
 import arrow from "@/app/imagesTwo/Vector (13).png";
 import cat1 from "@/app/imagesTwo/card-item.png";
 import cat2 from "@/app/imagesTwo/card-item (1).png";

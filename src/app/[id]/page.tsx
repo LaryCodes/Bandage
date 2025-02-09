@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/Card";
 import { groq } from "next-sanity";
-import productData from "@/components/productData";
+import productData from "@/components/ProductData";
 
 // Defining the Product type
 interface Product {

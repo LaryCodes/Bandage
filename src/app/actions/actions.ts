@@ -1,5 +1,19 @@
 
-import { Products } from "@/types/products";
+// import { Products } from "../../types/products";
+
+export interface Products {
+    category: string;
+    _id: string;
+    _type : "products";
+    name: string;
+    price: number;
+    quantity: number;
+    description: string;
+    image? :string;
+    slugCurrent: any;
+    discountPercent: number;
+}
+
 
 export const addToCart = (product: Products) => {
     let cart: Products[];

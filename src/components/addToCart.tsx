@@ -15,7 +15,7 @@ interface Product {
     }
 }
 
-const addToCart = ({product}:Product) => {
+const AddToCart = ({product}:Product) => {
     const dispatch = useDispatch()
     function addCart(){
        const cartItem = {...product,quantity: product.quantity } 
@@ -31,4 +31,4 @@ const addToCart = ({product}:Product) => {
   )
 }
 
-export default addToCart
+export default AddToCart
