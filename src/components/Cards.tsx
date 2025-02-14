@@ -1,56 +1,58 @@
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 interface Card {
-    id: string
-    title: string
-    price: number
-    thumbnail: string
-    onClick?: React.MouseEventHandler<HTMLButtonElement>}
-
-const Cards = (props:Card) => {
-  return (
-    <div className="py-[5px] px-[25px] flex flex-col items-center justify-center gap-[10px] border border-gray-200 rounded-lg shadow-lg">
-        <div className="flex justify-center">
-          <Image 
-          width="500"
-          height="500"
-          src={props.thumbnail} 
-          alt={props.title} />
-        </div>
-      <h5 className="w-full font-Montserrat font-bold text-[16px] leading-[24px] text-center text-[#252B42]">
-        {props.title}
-      </h5>
-     
-      <div className="w-full px-[3px] py-[5px] flex justify-center gap-[5px]">
-        <h5 className="font-Montserrat font-bold text-[16px] leading-[24px] text-[#BDBDBD] ">
-          {props.price}
-        </h5>
-        {/* <h5 className="font-Montserrat font-bold text-[16px] leading-[24px] text-[#23856D]">
-          $6.48
-        </h5> */}
-      </div>
-      <div className="w-full flex justify-center gap-[5px]">
-      <Link href="/cart">   
-      <button
-      onClick={props.onClick}
-        className=" py-[10px] px-[20px] w-full font-Montserrat font-bold text-[14px] text-white bg-gradient-to-r from-blue-200   to-blue-500 rounded-md hover:bg-gradient-to-r hover:from-blue-400 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-[#23A6F0] focus:ring-offset-2 transition-all"
-      >
-        Add to Cart
-      </button>
-      </Link>
-      <Link href="/id">
-      <button
-        // onClick={notify}
-        className=" py-[10px] px-[20px] w-full font-Montserrat font-bold text-[14px] text-white bg-[#23A6F0] rounded-md hover:bg-[#1d91d0] focus:outline-none focus:ring-2 focus:ring-[#23A6F0] focus:ring-offset-2 transition-all"
-      >
-        View Detail
-      </button>
-      </Link>
-      </div>
-      </div>
-  )
+  id: string;
+  title: string;
+  price: number;
+  productImage: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default Cards
+const Cards = (props: Card) => {
+  return (
+    <div className="p-4 flex flex-col items-center border border-gray-200 rounded-lg shadow-lg w-[250px]">
+      {/* Image Container with Fixed Size */}
+      <div className="w-full h-[180px] flex justify-center">
+        {props.productImage ? (
+          <Image
+            width={200}
+            height={180}
+            src={props.productImage}
+            alt={props.title}
+            className="w-full h-full object-cover rounded-md"
+          />
+        ) : (
+          <p className="text-red-500">No Image Available</p>
+        )}
+      </div>
+
+      {/* Product Title */}
+      <h5 className="font-bold text-[16px] text-center text-[#252B42] mt-2">
+        {props.title}
+      </h5>
+
+      {/* Price */}
+      <p className="text-gray-600 text-lg font-semibold mt-1">
+        ${props.price.toFixed(2)}
+      </p>
+
+      {/* Buttons Container */}
+      <div className="flex w-full justify-center gap-2 mt-3">
+        <Link href="/cart">
+          <button className="w-[110px] px-3 py-2 bg-blue-500 text-white rounded-md text-sm">
+            Add to Cart
+          </button>
+        </Link>
+        <Link href={`/products/${props.id}`}>
+          <button className="w-[110px] px-3 py-2 bg-gray-800 text-white rounded-md text-sm">
+            View Details
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Cards;
