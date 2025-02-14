@@ -18,6 +18,7 @@ import div2 from "@/app/images/filter4.jpg"
 //
 import Personimg from "@/app/images/shop-hero.png";
 import SecPersonimg from "@/app/images/asian-woman-man.png";
+import Link from 'next/link';
 
 
 const Main = () => {
@@ -45,9 +46,11 @@ const Main = () => {
         <h4 className="font-Montserrat font-normal text-base sm:text-lg lg:text-xl text-center lg:text-left max-w-full lg:max-w-[500px] pl-14 pt-5">
           We know how large objects will act, but things on a small scale.
         </h4>
+        <Link href="/products">
         <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#2DC071] text-white text-sm sm:text-base lg:text-lg rounded-md font-Montserrat hover:bg-[#25a061] transition duration-300 mt-5 ml-14">
           SHOP NOW
         </button>
+        </Link>
       </div>
 
       <div className="w-full flex justify-center py-[10px] relative bg-[#f5f5f5]">

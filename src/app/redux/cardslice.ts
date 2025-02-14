@@ -3,11 +3,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface CartState {
-    title: string;
-    id : string;
-    price: number;
-    quantity: number;
-    thumbnail: string;
+    _id: string
+    title: string
+    price: number
+    productImage: string // Fixing images array
+    description?: string
+    category?: string
+    quantity?: number
+    rating?: number
 
 }
 
@@ -21,7 +24,7 @@ export const cartSlice = createSlice({
             state.push(action.payload);
         },
         remove(state, action: PayloadAction<string>){
-            return state.filter((product) => product.id !== action.payload);
+            return state.filter((product) => product._id !== action.payload);
         }
     }
 });

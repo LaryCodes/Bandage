@@ -20,10 +20,10 @@ const CartPage = () => {  // Changed to PascalCase
       ) : (
         <ul>
           {cartItems.map((item) => (
-            <li key={item.id} className="flex justify-between items-center p-2 border-b">
+            <li key={item._id} className="flex justify-between items-center p-2 border-b">
               <span>{item.title} - ${item.price}</span>
               <button 
-                onClick={() => removeItem(item.id)} 
+                onClick={() => removeItem(item._id)} 
                 className="bg-red-500 text-white px-2 py-1 rounded"
               >
                 Remove

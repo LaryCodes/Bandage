@@ -1,34 +1,37 @@
 "use client";
-import React from 'react'
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { add } from '@/app/redux/cardslice';  
+import { add } from '@/app/redux/cardslice';
 
-
-
-interface Product {
+interface ProductProps {
     product: {
-        id: string
-        title: string
-        price: number
-        thumbnail: string
-        quantity: number
-    }
+        _id: string;
+        title: string;
+        price: number;
+        thumbnail: string;
+        quantity: number;
+    };
 }
 
-const AddToCart = ({product}:Product) => {
-    const dispatch = useDispatch()
-    function addCart(){
-       const cartItem = {...product,quantity: product.quantity } 
-         dispatch(add(cartItem))
+const AddToCart = ({ product }: ProductProps) => {
+    const dispatch = useDispatch();
+
+    function addCart() {
+        const cartItem = {
+            _id: product._id, // Ensure _id is included
+            title: product.title,
+            price: product.price,
+            productImage: product.thumbnail, // Corrected key
+            quantity: product.quantity,
+        };
+        dispatch(add(cartItem));
     }
 
-  return (
-    <button 
-    onClick={addCart}
-    >
-        Add to Cart hehe
-    </button>
-  )
-}
+    return (
+        <button onClick={addCart}>
+            Add to Cart hehe
+        </button>
+    );
+};
 
-export default AddToCart
+export default AddToCart;
