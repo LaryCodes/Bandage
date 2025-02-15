@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { urlFor } from "@/sanity/lib/image";
-import { Heart, ShoppingCart, Eye, Minus, Plus } from "lucide-react";
+import { Heart, ShoppingCart, Eye, Minus, Plus, Link } from "lucide-react";
 import Image from "next/image";
 import AddToCart from "@/components/AddToCart";
 import { Button } from "@/components/ui/button";

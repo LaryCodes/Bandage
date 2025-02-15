@@ -2,6 +2,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { add } from '@/app/redux/cardslice';
+import Link from 'next/link';
 
 interface ProductProps {
     product: {
@@ -28,12 +29,14 @@ const AddToCart = ({ product }: ProductProps) => {
     }
 
     return (
+        <Link href="/cart">
         <button 
         onClick={addCart}
         className="w-[110px] px-3 py-2 bg-blue-500 text-white rounded-md text-sm"
         >
             Add to Cart 
         </button>
+            </Link>
     );
 };
 

@@ -46,6 +46,7 @@ const ProductList: React.FC = () => { // Capitalized component name
                         title={product.title}
                         price={product.price}
                         id={product._id}
+                        quantity={product.quantity}
                     />
                 ))}
             </div>

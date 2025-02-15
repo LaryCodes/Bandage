@@ -85,7 +85,9 @@ const Header = () => {
           {/* Action Icons (Mobile and Desktop) */}
           <div className="flex items-center gap-4 md:hidden">
             <FiSearch className="text-2xl text-[#252B42] cursor-pointer" />
+            <Link href="/cart">
             <FiShoppingCart className="text-2xl text-[#252B42] cursor-pointer" />
+            </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
@@ -143,7 +145,9 @@ const Header = () => {
           <div className="hidden md:flex items-center gap-6 text-[#23A6F0]">
             <button className="text-sm font-medium">Login/Register</button>
             <FiSearch className="text-lg cursor-pointer" />
+            <Link href="/cart">
             <FiShoppingCart className="text-lg cursor-pointer" />
+            </Link>
             <FiHeart className="text-lg cursor-pointer" />
           </div>
         </div>

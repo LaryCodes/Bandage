@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import AddToCart from "./AddToCart";
+import { urlFor } from "@/sanity/lib/client";
 
 interface Card {
   id: string;
   title: string;
   price: number;
   productImage: string;
+  quantity?: number;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -40,11 +43,15 @@ const Cards = (props: Card) => {
 
       {/* Buttons Container */}
       <div className="flex w-full justify-center gap-2 mt-3">
-        <Link href="/cart">
-          <button className="w-[110px] px-3 py-2 bg-blue-500 text-white rounded-md text-sm">
-            Add to Cart
-          </button>
-        </Link>
+              <AddToCart
+                product={{
+                  title: props.title,
+                  price: props.price,
+                  productImage: urlFor(props.productImage).url(),
+                  _id: props.id,
+                  quantity: props.quantity ?? 1,
+                }}
+              />
         <Link href={`/products/${props.id}`}>
           <button className="w-[110px] px-3 py-2 bg-gray-800 text-white rounded-md text-sm">
             View Details
