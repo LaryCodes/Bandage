@@ -11,14 +11,14 @@ export interface Product {
   _id: string
   title: string
   price: number
-  productImage: string // Fixing images array
+  productImage: string 
   description?: string
   category?: string
   quantity?: number
   rating?: number
 }
 
-const productData = async (): Promise<Product[]> => {
+export const productData = async (): Promise<Product[]> => {
   const query = `*[_type == "product"]{
     _id,
     title,
@@ -32,7 +32,6 @@ const productData = async (): Promise<Product[]> => {
 
   try {
     const products = await client.fetch(query)
-    console.log("✅ Fetched products thumnbnail:", products.thumbnail) // Debugging
     return products
   } catch (error) {
     console.error("❌ Error fetching products:", error)

@@ -8,7 +8,7 @@ interface ProductProps {
         _id: string;
         title: string;
         price: number;
-        thumbnail: string;
+        productImage: string;
         quantity: number;
     };
 }
@@ -21,15 +21,18 @@ const AddToCart = ({ product }: ProductProps) => {
             _id: product._id, // Ensure _id is included
             title: product.title,
             price: product.price,
-            productImage: product.thumbnail, // Corrected key
+            productImage: product.productImage, // Corrected key
             quantity: product.quantity,
         };
         dispatch(add(cartItem));
     }
 
     return (
-        <button onClick={addCart}>
-            Add to Cart hehe
+        <button 
+        onClick={addCart}
+        className="w-[110px] px-3 py-2 bg-blue-500 text-white rounded-md text-sm"
+        >
+            Add to Cart 
         </button>
     );
 };
