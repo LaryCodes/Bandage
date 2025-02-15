@@ -1,3 +1,4 @@
+
 import { client } from "@/sanity/lib/client"
 // import FeatureProducts from "@/app/components/FeatureProducts";
 import ProductDetails from "@/components/ProductDetail";
@@ -5,6 +6,7 @@ import ProductDetails from "@/components/ProductDetail";
 import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import FeatureProducts from "@/components/FeatureProducts";
 
 export interface ProductType {
   _id: string;
@@ -34,15 +36,15 @@ const page = async ({ params }: { params: Params }) => {
   return (
     <>
     <Header />
-      <div className="flex justify-center items-center w-[1440px] mx-auto max-w-[90%] ">
+      <div className="flex flex-col justify-center items-center w-[1440px] mx-auto max-w-[90%] ">
 
         <Suspense>
         <ProductDetails productData={productData} />
         </Suspense>
 
-        {/* <Suspense>
+        <Suspense>
         {await FeatureProducts()}
-        </Suspense> */}
+        </Suspense>
         
       </div>
       <Footer />

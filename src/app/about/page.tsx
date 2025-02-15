@@ -273,10 +273,10 @@ export default function AboutUs() {
                     </div>
                 </section>
 
-                {/* groW */}
+                {/* groW
                 <section className="relative w-full h-[636px] flex bg-[#2A7CC7] justify-center items-center mt-[-30px]">
 
-                    {/* Right Side Blue Section */}
+                    {/* Right Side Blue Section 
                     <div className="w-[1440px] md:w-1/2 h-full bg-[#2A7CC7] lg:px-[250px] lg:ml-[0px] ml-[50px] py-16  flex flex-col justify-center">
                         <div className="w-[438px] flex flex-col gap-[24px]">
                             <h5 className="text-white text-lg font-bold leading-[24px] tracking-[0.1px]">WORK WITH US</h5>
@@ -291,7 +291,7 @@ export default function AboutUs() {
                             </button>
                         </div>
                     </div>
-                    {/* Left Side Image */}
+                    {/* Left Side Image 
                     <div className="md:w-1/2 h-full relative">
                         <Image
                             src={girl2}
@@ -300,7 +300,7 @@ export default function AboutUs() {
                         />
                     </div>
 
-                </section>
+                </section> */}
                 {/* Footer */}
                 <Footer />
             </div>

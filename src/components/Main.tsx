@@ -19,6 +19,7 @@ import div2 from "@/app/images/filter4.jpg"
 import Personimg from "@/app/images/shop-hero.png";
 import SecPersonimg from "@/app/images/asian-woman-man.png";
 import Link from 'next/link';
+import ProductHero from './ProductHero';
 
 
 const Main = () => {
@@ -123,7 +124,7 @@ const Main = () => {
         </div>
       </div>
 
-      <div className="third-section pt-10">
+      {/* <div className="third-section pt-10">
         <span>Featured Products</span>
         <h3>BESTSELLER PRODUCTS</h3>
         <p>Problems trying to resolve the conflict between</p>
@@ -273,7 +274,9 @@ const Main = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <ProductHero />
 
       <div className="w-full relative bg-[#23856D] rounded-[5px] py-[80px] flex justify-center">
       <div className="w-[90%] max-w-[1440px] flex flex-col lg:flex-row gap-[30px] items-center">
