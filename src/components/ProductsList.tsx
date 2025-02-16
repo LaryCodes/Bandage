@@ -33,7 +33,7 @@ const ProductsList = () => {
       </div>
 
       {/* Shop Section */}
-      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+      <div className="container pl-9 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
         {products.map((product) => (
           <Cards
             key={product._id}

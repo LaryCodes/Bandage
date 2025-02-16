@@ -183,19 +183,19 @@ const PricingPage = () => {
               Problems trying to resolve the conflict between the <br /> two major realms of Classical physics
             </p>
 
-            <div className="lex flex-col items-center sm:grid sm:grid-cols-2 my-8">
+            <div className="lex flex-col items-center sm:grid sm:grid-cols-2 lg:grid lg:grid-cols-3 gap-5 my-8">
               {Array(6).fill(0).map((_, index) => (
                 <div className="faqs-list flex mb-4 w-full" key={index}>
                   <div className="faq-col-1 flex items-start">
                     <div className="faq-icon text-primary">
-                      <IoIosArrowForward />
+                      {/* <IoIosArrowForward /> */}
                     </div>
-                    <div className="faq-text ml-2">
-                      <h4 className="font-semibold text-dark-blue">The quick fox jumps over the lazy dog</h4>
+                    <details className="faq-text ml-2">
+                      <summary className="font-semibold text-dark-blue">The quick fox jumps over the lazy dog</summary>
                       <p className="text-gray-600">
                         Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent door ENIM RELIT Mollie. Excitation venial consequent sent nostrum met.
                       </p>
-                    </div>
+                    </details>
                   </div>
                 </div>
               ))}

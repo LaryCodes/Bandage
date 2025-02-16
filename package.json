@@ -10,6 +10,7 @@
     "migrate": "node scripts/importData.mjs"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.11.3",
     "@radix-ui/react-tooltip": "^1.1.8",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^2.5.1",
@@ -30,6 +31,7 @@
     "sanity": "^3.70.0",
     "shadcn-ui": "^0.9.4",
     "sharp": "^0.33.5",
+    "sonner": "^1.7.4",
     "styled-components": "^6.1.14",
     "sweetalert2": "^11.15.10",
     "tailwind-merge": "^3.0.1"

@@ -9,7 +9,7 @@ import { VscGraphLine } from "react-icons/vsc";
 
 // image component
 import Image from "next/image";
-import women from "@/app/images/shop-hero-1.jpg"
+import women from "@/app/images/shop-hero-1.png"
 import Men from "@/app/images/filter1.jpg"
 import women2 from "@/app/images/filter2.jpg"
 import div1 from "@/app/images/filter3.jpg"
@@ -20,38 +20,43 @@ import Personimg from "@/app/images/shop-hero.png";
 import SecPersonimg from "@/app/images/asian-woman-man.png";
 import Link from 'next/link';
 import ProductHero from './ProductHero';
+import Header from './Header';
 
 
 const Main = () => {
   return (
     <div>
-      <div className="block relative w-full h-[716px]">
+      <Header />
+      <div className='lg:flex lg:flex-cols h-[600px] sm:h-[800px] xs:h-[700px] lg:h-[450px] bg-gradient-to-br from-blue-200 via-blue-400 to-black'>
+      <div className="flex justify-self-start ">
         <Image
+        className='flex justify-self-end '
           src={women}
           alt="Summer collection"
-          layout="fill"
+          // layout="fill"
           objectFit="cover"
-          objectPosition="50% 70%" // Adjust to focus on the hand of the girl
-          priority
-        />
+          // objectPosition="50% 70%" // Adjust to focus on the hand of the girl
+          // priority
+          />
       </div>
 
       {/* Content Overlay */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center lg:items-start gap-4 px-4 sm:px-8 text-white">
-        <h5 className="font-Montserrat font-semibold text-sm sm:text-base lg:text-lg pl-14 pt-12">
-          SUMMER 2020
+      <div className="flex flex-col items-center lg:items-start justify-self-start pt-8 sm:px-8 text-white">
+        <h5 className="font-Montserrat font-extrabold text-sm sm:text-base lg:text-lg pt-12">
+          SUMMER 2025
         </h5>
-        <h1 className="font-Montserrat font-semibold text-3xl sm:text-4xl lg:text-[58px] leading-tight text-center lg:text-left max-w-full lg:max-w-[600px] pl-14 pt-5">
-          NEW COLLECTION
+        <h1 className="font-Montserrat font-bold text-3xl sm:text-4xl lg:text-[58px] leading-tight text-center lg:text-left max-w-full lg:max-w-[600px] pt-5">
+          <span>NEW COLLECTION</span>
         </h1>
-        <h4 className="font-Montserrat font-normal text-base sm:text-lg lg:text-xl text-center lg:text-left max-w-full lg:max-w-[500px] pl-14 pt-5">
-          We know how large objects will act, but things on a small scale.
+        <h4 className="font-Montserrat font-normal text-base sm:text-lg lg:text-xl text-center lg:text-left max-w-full lg:max-w-[500px] pt-5">
+          Your Dream Place, where you can get the things you desire for, with ease
         </h4>
         <Link href="/products">
-        <button className="px-6 py-3 sm:px-8 sm:py-4 bg-[#2DC071] text-white text-sm sm:text-base lg:text-lg rounded-md font-Montserrat hover:bg-[#25a061] transition duration-300 mt-5 ml-14">
+        <button className="px-6 py-3 sm:px-8 sm:py-4 bg-blue-500 font-bold text-white text-sm sm:text-base lg:text-lg rounded-md font-Montserrat hover:bg-blue-700 transition duration-300 mt-5">
           SHOP NOW
         </button>
         </Link>
+      </div>
       </div>
 
       <div className="w-full flex justify-center py-[10px] relative bg-[#f5f5f5]">
@@ -275,8 +280,9 @@ const Main = () => {
           </div>
         </div>
       </div> */}
-
+      <div className='flex justify-center items-center pl-5 sm:pl-0'>
       <ProductHero />
+      </div>
 
       <div className="w-full relative bg-[#23856D] rounded-[5px] py-[80px] flex justify-center">
       <div className="w-[90%] max-w-[1440px] flex flex-col lg:flex-row gap-[30px] items-center">
