@@ -5,6 +5,8 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ProductsList from '@/components/ProductsList'  // New Client Component
 import arrow from '@/app/imagesTwo/Vector (13).png'
+import clients from "@/app/imagesTwo/desktop-clients-1.png";
+
 
 import cat1 from '@/app/imagesTwo/card-item.png';
 import cat2 from '@/app/imagesTwo/card-item (1).png';
@@ -29,11 +31,40 @@ const Page = () => {
         <span className="font-bold">Shop</span>
       </div>
 
-      {/* Category Images */}
-      <div className="bg-gray-100 py-6 grid grid-cols-2 md:grid-cols-5 gap-4 mx-10">
-        {[cat1, cat2, cat3, cat4, cat5].map((cat, index) => (
-          <Image key={index} src={cat} alt={`Category ${index + 1}`} className="w-full" />
-        ))}
+      {/* Category Section */}
+      <div className=" bg-[#FAFAFA] py-8">
+        <div className="mx-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 ml-[90px] lg:ml-[70px]">
+          <Image
+            src={cat1}
+            alt="1"
+            className=" md:w-full lg:w-full"
+          />
+          <Image
+            src={cat2}
+            alt="2"
+            className=" md:w-full lg:w-full"
+          />
+          <Image
+            src={cat3}
+            alt="3"
+            className=" md:w-full lg:w-full"
+          />
+          <Image
+            src={cat4}
+            alt="4"
+            className=" md:w-full lg:w-full"
+          />
+          <Image
+            src={cat5}
+            alt="5"
+            className="md:w-full lg:w-full"
+          />
+        </div>
+      </div>
+
+      {/* Clients Section */}
+      <div className="relative mt-12">
+        <Image src={clients} alt="clients" className="w-full" />
       </div>
 
       {/* Product Listing */}

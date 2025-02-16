@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Cards from "@/components/Cards";
 import ProductData, { Product as ProductType } from "@/components/ProductData";
 import { urlFor } from "@/sanity/lib/client";
+import ProductFilter from "./ProductFilter";
 
 const ProductsList = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -14,6 +16,7 @@ const ProductsList = () => {
       try {
         const data = await ProductData();
         setProducts(data);
+        setFilteredProducts(data); // Default: show all products
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -28,13 +31,21 @@ const ProductsList = () => {
 
   return (
     <div>
-      <div className="text-center my-4">
-        <p>Showing all {products.length} results</p>
+      {/* Popularity Section */}
+      <div className="w-full h-[98px] flex justify-center items-center mt-12">
+        <div className="w-full max-w-screen-xl flex flex-col sm:flex sm:flex-row md:pr-24 justify-between items-center py-[24px] px-4">
+          <div className="font-montserrat font-bold text-[14px] leading-[24px] pb-5 md:pl-20 md:text-xl text-[#737373]">
+            Showing {filteredProducts.length} out of {products.length} results
+          </div>
+          
+          {/* Filter Component */}
+          <ProductFilter products={products} setFilteredProducts={setFilteredProducts} />
+        </div>
       </div>
 
       {/* Shop Section */}
-      <div className="container pl-9 ms:pl-16 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
-        {products.map((product) => (
+      <div className="container pl-9 ms:pl-14 grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+        {filteredProducts.map((product) => (
           <Cards
             key={product._id}
             id={product._id}
