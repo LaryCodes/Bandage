@@ -1,4 +1,5 @@
 "use client";
+import { SignedIn, SignedOut, SignIn, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -6,13 +7,13 @@ import {
   FiMail,
   FiInstagram,
   FiYoutube,
-  FiFacebook,
-  FiTwitter,
+  FiLinkedin,
   FiSearch,
   FiShoppingCart,
   FiHeart,
   FiChevronDown,
   FiMenu,
+  FiGithub ,
   FiX,
 } from "react-icons/fi";
 
@@ -22,7 +23,7 @@ const Header = () => {
   return (
     <div className="overflow-x-hidden">
       {/* Header Section */}
-      <div className="bg-[#252B42] py-4 hidden lg:block">
+      <div className="bg-[#252B42] py-4 px-5  hidden lg:block">
         <div className="container mx-auto flex justify-between items-center text-white text-sm">
           {/* Contact Information */}
           <div className="flex items-center gap-4">
@@ -45,57 +46,55 @@ const Header = () => {
           <div className="flex items-center gap-4">
             <p className="hidden md:block">Follow Us:</p>
             <Link
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/lary.codes"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FiInstagram />
             </Link>
             <Link
-              href="https://www.youtube.com"
+              href="https://www.github.com/larycodes"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FiYoutube />
+              <FiGithub  />
             </Link>
             <Link
-              href="https://www.facebook.com"
+              href="https://www.linkedin.com/in/larycodes"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FiFacebook />
-            </Link>
-            <Link
-              href="https://www.twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FiTwitter />
+              <FiLinkedin />
             </Link>
           </div>
         </div>
       </div>
 
       {/* Navbar Section */}
-      <div className="bg-white shadow-md border-b-2 border-[#E5E5E5] relative z-40">
+      <div className="bg-white shadow-lg border-b-2 border-[#E5E5E5] relative z-40">
         <div className="container mx-auto flex items-center justify-between py-4">
           {/* Logo */}
-          <div className="text-2xl font-bold text-[#252B42]">Bandage</div>
+          <div className="text-2xl font-bold pl-5 text-[#252B42]">
+          <Link href="/">Bandage</Link>
+          </div>
 
           {/* Action Icons (Mobile and Desktop) */}
           <div className="flex items-center gap-4 md:hidden">
-            <FiSearch className="text-2xl text-[#252B42] cursor-pointer" />
+            <FiSearch className="text-2xl text-blue-500 cursor-pointer" />
             <Link href="/cart">
-            <FiShoppingCart className="text-2xl text-[#252B42] cursor-pointer" />
+            <FiShoppingCart className="text-2xl text-blue-500 cursor-pointer" />
+            </Link>
+            <Link href="/liked-products">
+            <FiHeart className="text-2xl text-blue-500 cursor-pointer" />
             </Link>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <FiX className="text-3xl text-[#252B42]" />
+                <FiX className="text-3xl text-blue-500" />
               ) : (
-                <FiMenu className="text-3xl text-[#252B42]" />
+                <FiMenu className="text-3xl text-blue-500" />
               )}
             </button>
           </div>
@@ -143,12 +142,23 @@ const Header = () => {
 
           {/* Action Icons for Desktop */}
           <div className="hidden md:flex items-center gap-6 text-[#23A6F0]">
-            <button className="text-sm font-medium">Login/Register</button>
+              {/* /
+              <Link href="/register">Register</Link> */}
             <FiSearch className="text-lg cursor-pointer" />
             <Link href="/cart">
             <FiShoppingCart className="text-lg cursor-pointer" />
             </Link>
+            <Link href="/liked-products">
             <FiHeart className="text-lg cursor-pointer" />
+            </Link>
+              <button className="text-sm font-medium pr-5">
+              <SignedOut>
+                <SignInButton mode="modal" />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              </button>
           </div>
         </div>
 

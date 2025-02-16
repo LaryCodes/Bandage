@@ -1,8 +1,14 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCart from "./AddToCart";
 import { urlFor } from "@/sanity/lib/client";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/app/redux/store";
+import { toggleLike } from "@/app/redux/likeSlice";
+import { Heart, HeartOff } from "lucide-react"; // Import icons
 
 interface Card {
   id: string;
@@ -10,13 +16,29 @@ interface Card {
   price: number;
   productImage: string;
   quantity?: number;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const Cards = (props: Card) => {
+  const dispatch = useDispatch();
+  const likedProducts = useSelector((state: RootState) => state.likes.likedProducts);
+  const isLiked = likedProducts.some((product) => product._id === props.id);
+
   return (
-    <div className="p-4 flex flex-col items-center border border-gray-200 rounded-lg shadow-lg w-[250px]">
-      {/* Image Container with Fixed Size */}
+    <div className="p-4 flex flex-col items-center border border-gray-200 rounded-lg shadow-lg w-[250px] relative">
+      {/* Like Button */}
+      <button
+        onClick={() => dispatch(toggleLike({
+          _id: props.id,
+          title: props.title,
+          price: props.price,
+          productImage: urlFor(props.productImage).url(),
+        }))}
+        className="absolute top-2 right-2 text-red-500"
+      >
+        {isLiked ? <Heart className="w-6 h-6 fill-red-500" /> : <HeartOff className="w-6 h-6" />}
+      </button>
+
+      {/* Image Container */}
       <div className="w-full h-[180px] flex justify-center">
         {props.productImage ? (
           <Image
@@ -37,21 +59,19 @@ const Cards = (props: Card) => {
       </h5>
 
       {/* Price */}
-      <p className="text-gray-600 text-lg font-semibold mt-1">
-        ${props.price.toFixed(2)}
-      </p>
+      <p className="text-gray-600 text-lg font-semibold mt-1">${props.price.toFixed(2)}</p>
 
-      {/* Buttons Container */}
-      <div className="flex w-full justify-center gap-2 mt-3">
-              <AddToCart
-                product={{
-                  title: props.title,
-                  price: props.price,
-                  productImage: urlFor(props.productImage).url(),
-                  _id: props.id,
-                  quantity: props.quantity ?? 1,
-                }}
-              />
+      {/* Buttons */}
+      <div className="flex w-full justify-center gap-1 font-semibold text-white rounded-md text-sm mt-3">
+        <AddToCart
+          product={{
+            title: props.title,
+            price: props.price,
+            productImage: urlFor(props.productImage).url(),
+            _id: props.id,
+            quantity: props.quantity ?? 1,
+          }}
+        />
         <Link href={`/products/${props.id}`}>
           <button className="w-[110px] px-3 py-2 bg-gray-800 text-white rounded-md text-sm">
             View Details

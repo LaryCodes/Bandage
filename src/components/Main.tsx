@@ -26,7 +26,6 @@ import Header from './Header';
 const Main = () => {
   return (
     <div>
-      <Header />
       <div className='lg:flex lg:flex-cols h-[600px] sm:h-[800px] xs:h-[700px] lg:h-[450px] bg-gradient-to-br from-blue-200 via-blue-400 to-black'>
       <div className="flex justify-self-start ">
         <Image
