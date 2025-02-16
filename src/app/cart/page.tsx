@@ -44,7 +44,7 @@ const CartPage: React.FC = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
+      <h1 className="text-2xl font-bold mb-6">Shopping Carts</h1>
 
       {cartItems.length === 0 ? (
         <p className="text-gray-500">Your cart is empty.</p>
@@ -70,7 +70,7 @@ const CartPage: React.FC = () => {
       )}
       {/* Payment Options */}
       <div className="mt-10">
-        <h2 className="text-2xl font-bold mb-4">Select Payment Method:</h2>
+        <h2 className="text-2xl font-bold mb-4">Select Payment Method</h2>
       <SignedOut>
         <p className="text-gray-500">Please sign in to complete your purchase.</p>
         <button className=" bg-red-500 mx-14 my-5 px-6 py-3 rounded-lg text-white font-bold text-md"><SignInButton mode="modal"/></button>

@@ -72,31 +72,39 @@ const Header = () => {
 
       {/* Navbar Section */}
       <div className="bg-white shadow-lg border-b-2 border-[#E5E5E5] relative z-40">
-        <div className="container mx-auto flex items-center justify-between py-4">
+        <div className="container mx-auto flex items-center justify-between pl-2 py-4">
           {/* Logo */}
-          <div className="text-2xl font-bold pl-5 text-[#252B42]">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? (
+                <FiX className="text-3xl text-[#252B42]" />
+              ) : (
+                <FiMenu className="text-3xl text-[#252B42]" />
+              )}
+            </button>
+          <div className="text-2xl font-bold text-[#252B42]">
           <Link href="/">Bandage</Link>
           </div>
 
           {/* Action Icons (Mobile and Desktop) */}
           <div className="flex items-center gap-4 md:hidden">
-            <FiSearch className="text-2xl text-blue-500 cursor-pointer" />
+            {/* <FiSearch className="text-2xl text-blue-500 cursor-pointer" /> */}
             <Link href="/cart">
             <FiShoppingCart className="text-2xl text-blue-500 cursor-pointer" />
             </Link>
             <Link href="/liked-products">
             <FiHeart className="text-2xl text-blue-500 cursor-pointer" />
             </Link>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <FiX className="text-3xl text-blue-500" />
-              ) : (
-                <FiMenu className="text-3xl text-blue-500" />
-              )}
-            </button>
+            <button className="text-sm font-medium pr-2">
+              <SignedOut>
+                <button className=" text-blue-500 "><SignInButton mode="modal" /></button> 
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
+              </button>
           </div>
 
           {/* Navigation Links */}
