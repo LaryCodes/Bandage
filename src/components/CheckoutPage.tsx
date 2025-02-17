@@ -15,6 +15,16 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // Automatically detect the environment and set the return URL
+  const getReturnUrl = () => {
+    if (typeof window !== "undefined") {
+      return window.location.hostname === "localhost"
+        ? `http://localhost:3000/payment-success?amount=${amount}`
+        : `https://bandage-xi.vercel.app/payment-success?amount=${amount}`;
+    }
+    return "https://bandage-xi.vercel.app/payment-success"; // Default in case window is undefined
+  };
+
   useEffect(() => {
     fetch("/api/create-payment-intent", {
       method: "POST",
@@ -47,17 +57,12 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `https://bandage-xi.vercel.app/payment-success?amount=${amount}`,
+        return_url: getReturnUrl(),
       },
     });
 
     if (error) {
-      // This point is only reached if there's an immediate error when
-      // confirming the payment. Show the error to your customer (for example, payment details incomplete)
       setErrorMessage(error.message);
-    } else {
-      // The payment UI automatically closes with a success animation.
-      // Your customer is redirected to your `return_url`.
     }
 
     setLoading(false);
@@ -82,7 +87,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
     <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
       {clientSecret && <PaymentElement />}
 
-      {errorMessage && <div>{errorMessage}</div>}
+      {errorMessage && <div className="text-red-500 mt-2">{errorMessage}</div>}
 
       <button
         disabled={!stripe || loading}

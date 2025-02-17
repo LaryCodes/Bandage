@@ -1,13 +1,13 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { CheckCircleIcon } from "lucide-react";
 import Link from "next/link";
 
-export default function PaymentSuccess({
-  searchParams: { amount },
-}: {
-  searchParams: { amount: string };
-}) {
+export default function PaymentSuccess() {
+  const searchParams = useSearchParams();
+  const amount = searchParams.get("amount") || "0"; // Default to "0" if undefined
+
   return (
     <main className="flex justify-center items-center h-screen bg-gradient-to-tr from-blue-600 to-purple-600">
       <div className="bg-white shadow-2xl rounded-lg ms:mx-7 mx-10 my-10 p-10 text-center max-w-md w-full animate-fadeIn">
