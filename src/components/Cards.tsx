@@ -24,7 +24,7 @@ const Cards = (props: Card) => {
   const isLiked = likedProducts.some((product) => product._id === props.id);
 
   return (
-    <div className="p-4 flex flex-col items-center border border-gray-200 rounded-lg shadow-lg w-[250px] relative">
+    <div className="p-4 flex flex-col items-center border border-gray-200 rounded-lg shadow-xl w-[250px] relative">
       {/* Like Button */}
       <button
         onClick={() => dispatch(toggleLike({

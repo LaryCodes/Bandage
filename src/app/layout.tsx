@@ -6,6 +6,7 @@ import {ClerkProvider} from '@clerk/nextjs'
 import { Toaster } from 'sonner'
 import { store } from '@/app/redux/store'
 import { Provider } from 'react-redux'
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 

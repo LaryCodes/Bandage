@@ -29,7 +29,7 @@ const AddToCart = ({ product }: ProductProps) => {
     dispatch(add(cartItem));
 
     // Show toast notification
-    toast.success(`${product.title} has been added to the cart!`, {
+    toast.success(`${product.title} has been added to the cart! `, {
       duration: 3000, // Notification disappears in 3 seconds
     });
   }

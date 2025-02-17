@@ -75,6 +75,7 @@ const Header = () => {
         <div className="container mx-auto flex items-center justify-between pl-2 py-4">
           {/* Logo */}
             <button
+              className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -84,7 +85,7 @@ const Header = () => {
                 <FiMenu className="text-3xl text-[#252B42]" />
               )}
             </button>
-          <div className="text-2xl font-bold text-[#252B42]">
+          <div className="text-2xl pl-2 font-bold text-[#252B42]">
           <Link href="/">Bandage</Link>
           </div>
 
@@ -104,7 +105,7 @@ const Header = () => {
               <SignedIn>
                 <UserButton />
               </SignedIn>
-              </button>
+            </button>
           </div>
 
           {/* Navigation Links */}
